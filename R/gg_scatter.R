@@ -7,6 +7,8 @@
 #' @param mapping same as ggplot
 #' @param col_low low value of gradient
 #' @param col_high high value of gradient
+#' @import ggplot2 dplyr stringr rlang
+#' @importFrom stats prcomp
 #' @examples
 #' gg_scatter(mpg, mapping = aes(x = displ, y = hwy))
 #' @export

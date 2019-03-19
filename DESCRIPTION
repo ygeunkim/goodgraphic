@@ -2,13 +2,15 @@ Package: goodgraphic
 Type: Package
 Title: Private tools for ggplot2
 Version: 0.1.0
-Author@R: person("Young-geun", "Kim", email = "dudrmshub@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Young-geun", "Kim", email = "dudrmshub@gmail.com", role = c("aut", "cre"))
 Maintainer: Young-geun Kim <dudrmshub@gmail.com>
 Description: Some functions that are oftenly used in ggplot.
 Imports:
     ggplot2,
     dplyr,
-    stringr
+    stringr,
+    rlang
+Suggests: tidyverse
 License: GPL
 URL: https://github.com/ygeunkim
 BugReports: https://github.com/ygeunkim/rmdtool/issues

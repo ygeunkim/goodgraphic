@@ -15,3 +15,6 @@ gives pallete values
 \description{
 ggplot default colors
 }
+\examples{
+gg_hcl(3)
+}

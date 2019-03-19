@@ -2,7 +2,8 @@
 #'
 #' @description ggplot default colors
 #' @param n group numbers
-#' @example
+#' @importFrom grDevices hcl
+#' @examples
 #' gg_hcl(3)
 #' @return gives pallete values
 #' @export
