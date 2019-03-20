@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: cite.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -12,7 +13,6 @@ knitr::opts_chunk$set(
   fig.asp = .618
   )
 options(digits = 3)
-pander::panderOptions("round", 3)
 ```
 
 # goodgraphic
@@ -20,3 +20,29 @@ pander::panderOptions("round", 3)
 **Private** tools for ggplot2
 
 This package is a set of functions that are frequently used with `ggplot2`.
+
+## Install
+
+```{r, eval=FALSE}
+devtools::install_github("ygeunkim/goodgraphic")
+```
+
+```{r}
+library(tidyverse)
+library(goodgraphic)
+```
+
+
+## Scatter plot
+
+This is the function motivated by @scatter.
+
+```{r}
+gg_scatter(diamonds, mapping = aes(x = carat, y = price), size = 2, alpha = .2)
+```
+
+
+***
+
+## Reference
+
