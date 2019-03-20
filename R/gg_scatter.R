@@ -14,7 +14,7 @@
 #' @examples
 #' gg_scatter(mpg, mapping = aes(x = displ, y = hwy), global = TRUE)
 #' @export
-gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#f0650e", alpha_focus = FALSE, global = TRUE, ...) {
+gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#f0650e", alpha_focus = FALSE, alpha_range = c(.05, .25), global = TRUE, ...) {
   data <-
     data %>%
     gg_aes(mapping = mapping) %>%
@@ -29,6 +29,8 @@ gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#
     data <-
       data %>%
       mutate(alpha = 1 / dens)
+  } else {
+    alpha_range <- c(.1, 1)
   }
   if (global) {
     gg_plot <-
@@ -42,7 +44,7 @@ gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#
     gg_plot <-
       ggplot(data = data) +
       geom_point(mapping = aes(x = !!x, y = !!y, colour = PC), show.legend = FALSE, ...) +
-      scale_alpha(range = c(.05, .25))
+      scale_alpha(range = alpha_range)
   }
   gg_plot +
     scale_colour_gradient(low = col_low, high = col_high)
