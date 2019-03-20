@@ -14,29 +14,29 @@
 #' @examples
 #' gg_scatter(mpg, mapping = aes(x = displ, y = hwy), global = TRUE)
 #' @export
-gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#f0650e", alpha_focus = FALSE, alpha_range = c(.05, .25), global = TRUE, ...) {
+gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#f0650e", alpha_focus = FALSE, alpha_range = c(.05, .25), alpha = 1, global = TRUE, ...) {
   data <-
     data %>%
     gg_aes(mapping = mapping) %>%
     mutate(
       PC = prcomp(~ ., data = .)$x[,1],
-      alpha = 1
+      trans = 1
     )
   if (alpha_focus) {
-    bins <- ash::bin2(data %>% as.matrix())
+    bins <- ash::bin2(data %>% select(1:2) %>% as.matrix())
     kern <- ash::ash2(bins)
-    dens <- fields::interp.surface(kern, data %>% as.matrix())
+    dens <- fields::interp.surface(kern, data %>% select(1:2) %>% as.matrix())
     data <-
       data %>%
-      mutate(alpha = 1 / dens)
+      mutate(trans = 1 / dens)
   } else {
     alpha_range <- c(.1, 1)
   }
   if (global) {
     gg_plot <-
       ggplot(data = data, mapping = mapping) +
-      geom_point(mapping = aes(colour = PC, alpha = alpha), show.legend = FALSE, ...) +
-      scale_alpha(range = c(.05, .25))
+      geom_point(mapping = aes(colour = PC, alpha = trans), show.legend = FALSE, ...) +
+      scale_alpha(range = alpha_range)
   } else {
     var_name <- names(data)
     x <- sym(var_name[1])
