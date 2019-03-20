@@ -4,21 +4,26 @@
 \alias{gg_scatter}
 \title{Scatter plot with color directed by PCA}
 \usage{
-gg_scatter(data, mapping, col_low = "#ff4b1f", col_high = "#1fddff")
+gg_scatter(data, mapping = aes(), col_low = "#ff4b1f",
+  col_high = "#1fddff", global = TRUE, ...)
 }
 \arguments{
-\item{data}{data frame to be plotted}
+\item{data}{data frame to be plotted.}
 
-\item{mapping}{same as ggplot}
+\item{mapping}{aesthetic mapping. Since this function automatically colors the points, just specify only x and y.}
 
-\item{col_low}{low value of gradient}
+\item{col_low}{low end of the gradient.}
 
-\item{col_high}{high value of gradient}
+\item{col_high}{high end of the gradient.}
+
+\item{global}{give aes mapping in the global ggplot environment.}
+
+\item{...}{Additional parameters for geom_point()}
 }
 \description{
 Draw a scatter plot and color the points along the principal components.
 Color direction becomes the data spread the most.
 }
 \examples{
-gg_scatter(mpg, mapping = aes(x = displ, y = hwy))
+gg_scatter(mpg, mapping = aes(x = displ, y = hwy), global = TRUE)
 }

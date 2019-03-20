@@ -17,6 +17,8 @@ BugReports: https://github.com/ygeunkim/rmdtool/issues
 Encoding: UTF-8
 LazyData: true
 Collate:
+    "gg.R"
+    "gg_misc.R"
     "gg_scatter.R"
     "gg_color.R"
 RoxygenNote: 6.1.1
