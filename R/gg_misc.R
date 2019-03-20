@@ -6,7 +6,7 @@
 #' @param data data object that can be used in the ggplot2 package
 #' @param mapping argument
 #' @examples
-#' gg_aes(mpg, aes(x = displ, y = hwy, colour = fl, group = class))
+#' gg_aes(ggplot2::mpg, aes(x = displ, y = hwy, colour = fl, group = class))
 #' @export
 gg_aes <- function(data, mapping = aes()) {
   var_name <-

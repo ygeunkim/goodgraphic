@@ -16,5 +16,5 @@ This function subset the data specified in the mapping to use aes() in the custo
 Denote that this is defined for the others.
 }
 \examples{
-gg_aes(mpg, aes(x = displ, y = hwy, colour = fl, group = class))
+gg_aes(ggplot2::mpg, aes(x = displ, y = hwy, colour = fl, group = class))
 }

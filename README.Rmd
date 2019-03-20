@@ -19,7 +19,7 @@ options(digits = 3)
 
 **Private** tools for ggplot2
 
-This package is a set of functions that are frequently used with `ggplot2`.
+This package is a set of functions that are frequently used by [ygeunkim](https://github.com/ygeunkim) with `ggplot2`.
 
 ## Install
 
@@ -27,7 +27,9 @@ This package is a set of functions that are frequently used with `ggplot2`.
 devtools::install_github("ygeunkim/goodgraphic")
 ```
 
-```{r}
+Using `tidyverse` package is recommended.
+
+```{r, message=FALSE}
 library(tidyverse)
 library(goodgraphic)
 ```
