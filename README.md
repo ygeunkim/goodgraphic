@@ -25,7 +25,7 @@ This is the function motivated by Jackson
 (2017).
 
 ``` r
-gg_scatter(diamonds, mapping = aes(x = carat, y = price), size = 2, alpha = .2)
+gg_scatter(diamonds, mapping = aes(x = carat, y = price), alpha_focus = TRUE, size = 2, shape = 16)
 ```
 
 <img src="README_files/figure-gfm/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />

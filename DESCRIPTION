@@ -9,7 +9,9 @@ Imports:
     ggplot2,
     dplyr,
     stringr,
-    rlang
+    rlang,
+    ash,
+    fields
 Suggests: tidyverse
 License: GPL
 URL: https://github.com/ygeunkim
