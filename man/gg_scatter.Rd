@@ -4,8 +4,9 @@
 \alias{gg_scatter}
 \title{Scatter plot with color directed by PCA}
 \usage{
-gg_scatter(data, mapping = aes(), col_low = "#ff4b1f",
-  col_high = "#1fddff", global = TRUE, ...)
+gg_scatter(data, mapping = aes(), col_low = "#0091ff",
+  col_high = "#f0650e", alpha_focus = FALSE, alpha_range = c(0.05,
+  0.25), alpha = 1, global = TRUE, ...)
 }
 \arguments{
 \item{data}{data frame to be plotted.}

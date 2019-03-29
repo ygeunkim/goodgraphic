@@ -23,4 +23,5 @@ Collate:
     "gg_misc.R"
     "gg_scatter.R"
     "gg_color.R"
+    "gg_curve.R"
 RoxygenNote: 6.1.1
