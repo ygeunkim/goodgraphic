@@ -17,6 +17,12 @@ gg_scatter(data, mapping = aes(), col_low = "#0091ff",
 
 \item{col_high}{high end of the gradient.}
 
+\item{alpha_focus}{If TRUE; transparency let dense points visible}
+
+\item{alpha_range}{range argument of [scale_alpha]}
+
+\item{alpha}{Set alpha parameter at one value}
+
 \item{global}{give aes mapping in the global ggplot environment.}
 
 \item{...}{Additional parameters for geom_point()}

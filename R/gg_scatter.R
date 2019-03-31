@@ -7,6 +7,9 @@
 #' @param mapping aesthetic mapping. Since this function automatically colors the points, just specify only x and y.
 #' @param col_low low end of the gradient.
 #' @param col_high high end of the gradient.
+#' @param alpha_focus If TRUE; transparency let dense points visible
+#' @param alpha_range range argument of [scale_alpha]
+#' @param alpha Set alpha parameter at one value
 #' @param global give aes mapping in the global ggplot environment.
 #' @param ... Additional parameters for geom_point()
 #' @importFrom fields interp.surface
