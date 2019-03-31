@@ -11,7 +11,8 @@ Imports:
     stringr,
     rlang,
     ash,
-    fields
+    fields,
+    vctrs
 Suggests: tidyverse
 License: GPL
 URL: https://github.com/ygeunkim

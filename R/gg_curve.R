@@ -40,3 +40,4 @@ gg_curve <- function(expr, from = NULL, to = NULL, n = 101,
       y = ylab
     )
 }
+
