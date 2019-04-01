@@ -20,10 +20,14 @@ gg_curve <- function(expr, from = NULL, to = NULL, n = 101,
                      xname = "x", xlab = xname, ylab = NULL,
                      xlim = NULL, args = list(), ...) {
   sexpr <- substitute(expr)
-  Myfunction <- function(x) {
-    env <- list(x = x)
-    names(env) <- xname
-    eval(sexpr, envir = env)
+  if (is.function(expr)) {
+    Myfunction <- expr
+  } else {
+    Myfunction <- function(x) {
+      env <- list(x = x)
+      names(env) <- xname
+      eval(sexpr, envir = env)
+    }
   }
   if ( is.null(ylab) ) ylab <- sexpr
   tibble(x = c(from, to)) %>%
