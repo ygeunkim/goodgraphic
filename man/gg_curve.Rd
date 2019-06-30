@@ -5,7 +5,7 @@
 \title{Draw a curve of a function}
 \usage{
 gg_curve(expr, from = NULL, to = NULL, n = 101, xname = "x",
-  xlab = xname, ylab = NULL, xlim = NULL, args = list(), ...)
+  xlab = xname, ylab = NULL, args = list(), ...)
 }
 \arguments{
 \item{expr}{same argument as [curve()]. The name of a function, or a call or an expression written as a function of x which will evaluate to an object of the same length as x.}
@@ -22,15 +22,13 @@ gg_curve(expr, from = NULL, to = NULL, n = 101, xname = "x",
 
 \item{ylab}{label of the y-axis}
 
-\item{xlim}{Optionally, restrict the range of the function}
-
 \item{args}{list of the additional argument of the function}
 
-\item{...}{Additional arguments in stat_function()}
+\item{...}{Additional arguments in drawing function expr}
 }
 \description{
 Draw a line corresponding to a function expression.
-This implements [ggplot2::stat_function()] given a tibble of range [from, to].
+This implements [ggplot2::geom_path()] given a tibble of range [from, to, n].
 }
 \examples{
 gg_curve(sqrt(1 + x), from = 1, to = 10)

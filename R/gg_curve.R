@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Draw a line corresponding to a function expression.
-#' This implements [ggplot2::stat_function()] given a tibble of range [from, to].
+#' This implements [ggplot2::geom_path()] given a tibble of range [from, to, n].
 #' @param expr same argument as [curve()]. The name of a function, or a call or an expression written as a function of x which will evaluate to an object of the same length as x.
 #' @param from the lower bound of the x-axis
 #' @param to the upper bound of the x-axis
@@ -10,35 +10,30 @@
 #' @param xname character; argument of the function in expr, the name of the x axis
 #' @param xlab label of the x-axis
 #' @param ylab label of the y-axis
-#' @param xlim Optionally, restrict the range of the function
 #' @param args list of the additional argument of the function
-#' @param ... Additional arguments in stat_function()
+#' @param ... Additional arguments in drawing function expr
 #' @examples
 #' gg_curve(sqrt(1 + x), from = 1, to = 10)
 #' @export
 gg_curve <- function(expr, from = NULL, to = NULL, n = 101,
                      xname = "x", xlab = xname, ylab = NULL,
-                     xlim = NULL, args = list(), ...) {
+                     args = list(), ...) {
   sexpr <- substitute(expr)
-  if (is.function(expr)) {
-    Myfunction <- expr
+  draw <- tibble(x = seq(from = from, to = to, length.out = n))
+  if (is.name(sexpr)) {
+    draw <-
+      draw %>%
+      mutate(y = expr(x, ...))
   } else {
-    Myfunction <- function(x) {
-      env <- list(x = x)
-      names(env) <- xname
-      eval(sexpr, envir = env)
-    }
+    args[[xname]] <- draw$x
+    draw <-
+      draw %>%
+      mutate(y = eval(sexpr, envir = args, enclos = parent.frame()))
   }
   if ( is.null(ylab) ) ylab <- sexpr
-  tibble(x = c(from, to)) %>%
+  draw %>%
     ggplot(aes(x = x)) +
-    stat_function(
-      fun = Myfunction,
-      n = n,
-      xlim = xlim,
-      args = args,
-      ...
-    ) +
+    geom_path(aes(y = y)) +
     labs(
       x = xlab,
       y = ylab
