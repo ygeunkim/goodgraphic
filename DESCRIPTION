@@ -14,7 +14,7 @@ Imports:
     fields,
     vctrs
 Suggests: tidyverse
-License: MIT
+License: MIT + file LICENSE
 URL: https://github.com/ygeunkim
 BugReports: https://github.com/ygeunkim/rmdtool/issues
 Encoding: UTF-8
