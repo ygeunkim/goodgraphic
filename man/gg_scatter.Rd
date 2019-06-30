@@ -32,5 +32,5 @@ Draw a scatter plot and color the points along the principal components.
 Color direction becomes the data spread the most.
 }
 \examples{
-gg_scatter(mpg, mapping = aes(x = displ, y = hwy), global = TRUE)
+gg_scatter(ggplot2::mpg, mapping = ggplot2::aes(x = displ, y = hwy), global = TRUE)
 }

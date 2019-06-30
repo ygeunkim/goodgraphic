@@ -15,7 +15,7 @@
 #' @importFrom fields interp.surface
 #' @importFrom stats prcomp
 #' @examples
-#' gg_scatter(mpg, mapping = aes(x = displ, y = hwy), global = TRUE)
+#' gg_scatter(ggplot2::mpg, mapping = ggplot2::aes(x = displ, y = hwy), global = TRUE)
 #' @export
 gg_scatter <- function(data, mapping = aes(), col_low = "#0091ff", col_high = "#f0650e", alpha_focus = FALSE, alpha_range = c(.05, .25), alpha = 1, global = TRUE, ...) {
   data <-
